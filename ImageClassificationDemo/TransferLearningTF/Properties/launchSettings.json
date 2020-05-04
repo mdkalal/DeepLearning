@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "TransferLearningTF": {
+      "commandName": "Project",
+      "commandLineArgs": "train"
+    }
+  }
+}

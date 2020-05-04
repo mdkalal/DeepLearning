@@ -1,0 +1,49 @@
+﻿@{
+    ViewData["Title"] = "Chewbacca or Ewok?";
+}
+
+    <script type="text/javascript" language="javascript">
+    function DisplayAndClassifyImage() {
+
+        $.post("/Home/DoClassify", function (data) {
+
+            var img = data.split(',')
+
+            document.getElementById("image").innerHTML = "<img src='" + img[0] + "'/>";
+
+            document.getElementById("prediction").innerHTML = img[1];
+        });
+    }
+
+    </script>
+
+    <div class="text-center">
+        <h1 class="display-2">Chewbacca or Ewok?</h1>
+
+
+        <div class="row">
+            <div class="col-sm">
+
+                <img src="~/images/chewy.jpg" />
+
+            </div>
+            <div class="col-sm">
+                <img src="~/images/ewok.jpg" />
+
+            </div>
+
+        </div>
+
+        <form>
+            <input type="button" value="Show image" onclick="DisplayAndClassifyImage();">
+        </form>
+
+        <p id="image">
+            <!--  Empty paragraph to show the image injected by the DisplayAndClassifyImage function  -->
+        </p>
+
+        <p id="prediction" class="display-4">
+            <!--  Empty paragraph to show the label injected by the DisplayAndClassifyImage function  -->
+        </p>
+
+    </div>
